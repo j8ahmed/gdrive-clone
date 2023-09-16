@@ -23,13 +23,21 @@
     overflow: hidden;
 }
 
-.img{
+.img, .svg{
     width: auto;
     height: auto;
     max-width: 150px;
     max-height: 150px;
     justify-self: center;
     align-self: center;
+}
+
+.svg{
+    width: 100px;
+    height: 100px;
+    path{
+        fill: white;
+    }
 }
 
 .fileHeading{
