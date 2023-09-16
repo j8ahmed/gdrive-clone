@@ -26,7 +26,7 @@ export const fileUpload = (event: React.ChangeEvent<HTMLInputElement>, setProgre
                     getDownloadURL(uploadTask.snapshot.ref)
                         .then((downloadURL: string) => {
                             console.log(downloadURL)
-                            addFiles(downloadURL)
+                            addFiles(downloadURL, file.name)
                         })
                         .catch((err) => {
                             console.log(err)

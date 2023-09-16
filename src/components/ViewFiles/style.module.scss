@@ -1,0 +1,38 @@
+#container{
+    width: 100%;
+}
+
+#fileList{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center;
+    grid-gap: 16px;
+}
+
+.fileLink{
+    width: 100%;
+}
+
+.file{
+    padding: 16px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 16px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 150px auto;
+    overflow: hidden;
+}
+
+.img{
+    width: auto;
+    height: auto;
+    max-width: 150px;
+    max-height: 150px;
+    justify-self: center;
+    align-self: center;
+}
+
+.fileHeading{
+    margin-top: 16px;
+    text-align: center;
+}
