@@ -24,10 +24,10 @@
 }
 
 .img, .svg{
-    width: auto;
-    height: auto;
-    max-width: 150px;
-    max-height: 150px;
+    width: 150px;
+    height: 150px;
+    border-radius: 16px;
+    object-fit: cover;
     justify-self: center;
     align-self: center;
 }
