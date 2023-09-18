@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react"
 import { database } from "~/firebaseConfig"
 import { collection, onSnapshot, query, getDocs } from "@firebase/firestore"
-
-interface File {
-    imageLink: string; 
-    name: string; 
-    id: string; 
-}
+import { File } from "@/Interface/"
 
 export default function useFiles(){
     const [fileList, setFileList] = useState<File[]>([])

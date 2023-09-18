@@ -3,10 +3,8 @@ import { addFiles } from "~/api/firestore/firestore"
 import { ref, getDownloadURL, uploadBytesResumable } from "@firebase/storage"
 // import { UploadTaskSnapshot, FirebaseStorageError } from "@firebase/storage-types"
 
-export const fileUpload = (event: React.ChangeEvent<HTMLInputElement>, setProgress: (x: number) => void) => {
+export const fileUpload = (event: React.ChangeEvent<HTMLInputElement>, userEmail: string, setProgress: (x: number) => void) => {
     if (event?.target?.files){
-        console.log(event.target.files[0])
-
         const file = event.target.files[0]
 
         if (file){
@@ -23,10 +21,18 @@ export const fileUpload = (event: React.ChangeEvent<HTMLInputElement>, setProgre
                     alert(error)
                 },
                 () => {
+                    // Run on completion
                     getDownloadURL(uploadTask.snapshot.ref)
                         .then((downloadURL: string) => {
-                            console.log(downloadURL)
-                            addFiles(downloadURL, file.name)
+                            addFiles({
+                                name: file.name,
+                                isFolder: false,
+                                isImage:  fileIsImage(file.name),
+                                imageLink: downloadURL,
+                                ownerEmail: userEmail,
+                                parentFolderId: "REPLACE ME",
+                                fileList: [],
+                            })
                         })
                         .catch((err) => {
                             console.log(err)
@@ -35,4 +41,16 @@ export const fileUpload = (event: React.ChangeEvent<HTMLInputElement>, setProgre
             )
         }
     }
+}
+
+
+function fileIsImage(filename: string){
+    const imageFileTypes = ["png", "jpg", "jpeg", "gif", "svg"]
+    const regex = new RegExp("\.\([a-z]+\)$", "i")
+    const matches = filename.match(regex)
+    if (matches){
+        const fileType = matches[1]
+        return imageFileTypes.includes(fileType)
+    }
+    return false
 }
