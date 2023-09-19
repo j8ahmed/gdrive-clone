@@ -52,7 +52,8 @@ export default function Header({parentFolderId = ""}: HeaderProps) {
                                             fileLink: "",
                                             ownerEmail: session.user.email ?? "",
                                             parentFolderId,
-                                            fileList: []
+                                            fileList: [],
+                                            sharedWith: []
                                         })
                                     }}
                                 />

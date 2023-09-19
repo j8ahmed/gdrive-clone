@@ -7,6 +7,19 @@ export interface ViewFilesProps {
     ownerEmail: string;
 }
 
+export interface FileProps {
+    open: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, file: File) => void
+    file: File;
+}
+
+export interface FileModalProps {
+    setShowModal: (x: boolean) => void;
+    email: string;
+    setEmail: (email: string) => void;
+    shareFile: () => void;
+    file: File;
+}
+
 export interface Button {
     btnClass: string;
     title: string;
@@ -31,4 +44,5 @@ export interface File {
     ownerEmail: string;
     parentFolderId: string;
     fileList: string[];
+    sharedWith: string[];
 }

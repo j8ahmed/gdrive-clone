@@ -32,6 +32,7 @@ export const fileUpload = (event: React.ChangeEvent<HTMLInputElement>, userEmail
                                 ownerEmail: userEmail,
                                 parentFolderId,
                                 fileList: [],
+                                sharedWith: [],
                             })
                         })
                         .catch((err) => {
