@@ -4,7 +4,7 @@ export interface HeaderProps {
 
 export interface ViewFilesProps {
     parentFolderId: string;
-    ownerEmail: string;
+    userEmail: string;
 }
 
 export interface FileProps {
@@ -26,7 +26,7 @@ export interface Button {
     onClick: () => void;
 }
 
-export interface GithubAuth {
+export interface AuthProvider {
     clientId: string;
     clientSecret: string;
 }

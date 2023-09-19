@@ -66,7 +66,14 @@ export default function Header({parentFolderId = ""}: HeaderProps) {
                     {session ? 
                         <>
                             <Button btnClass="btn-primary btn-sm" onClick={signOut} title="Sign Out!" />
-                            <img className={styles.profileImg} src={session.user.image as string} alt={session.user.name ?? ""} />
+                            {session.user.image ?
+                                <img className={styles.profileImg} src={session.user.image as string} alt={session.user.name ?? ""} /> :
+                                <div className="avatar placeholder">
+                                  <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                                    <span className="text-3xl">{session.user.name[0]}</span>
+                                  </div>
+                                </div> 
+                            }
                         </> :
                         <Button btnClass="btn-primary btn-sm" onClick={signIn} title="Sign Up!" /> 
                     }

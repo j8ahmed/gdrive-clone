@@ -5,9 +5,9 @@ import File from "@/components/File/";
 import { File as FileType, ViewFilesProps } from "@/Interface/";
 import styles from "./style.module.scss";
 
-export default function ViewFiles({parentFolderId = "", ownerEmail = ""}: ViewFilesProps) {
+export default function ViewFiles({parentFolderId = "", userEmail = ""}: ViewFilesProps) {
     const router = useRouter();
-    const fileList = useFiles(parentFolderId, ownerEmail);
+    const fileList = useFiles(parentFolderId, userEmail);
 
     const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, file: FileType) => {
         event.preventDefault();

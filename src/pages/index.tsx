@@ -22,7 +22,7 @@ export default function Home() {
                         Welcome <span className="text-[rgb(0,175,175)]">{session?.user.name}</span>
                     </h1>
 
-                    <ViewFiles ownerEmail={session?.user?.email ?? ""}/>
+                    <ViewFiles userEmail={session?.user?.email ?? ""}/>
                 </div>
             </main>
         </>
