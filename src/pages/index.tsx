@@ -16,13 +16,13 @@ export default function Home() {
 
             <Header/>
 
-            <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-                <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-                    <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-                        Welcome <span className="text-[hsl(280,100%,70%)]">{session?.user.name}</span>
+            <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-b from-[#111111] to-[#15162c]">
+                <div className="container flex flex-col items-start justify-start gap-12 px-4 py-16 ">
+                    <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem] align-left">
+                        Welcome <span className="text-[rgb(0,175,175)]">{session?.user.name}</span>
                     </h1>
 
-                    <ViewFiles />
+                    <ViewFiles ownerEmail={session?.user?.email ?? ""}/>
                 </div>
             </main>
         </>

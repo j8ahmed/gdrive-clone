@@ -3,7 +3,7 @@ import { addFiles } from "~/api/firestore/firestore"
 import { ref, getDownloadURL, uploadBytesResumable } from "@firebase/storage"
 // import { UploadTaskSnapshot, FirebaseStorageError } from "@firebase/storage-types"
 
-export const fileUpload = (event: React.ChangeEvent<HTMLInputElement>, userEmail: string, setProgress: (x: number) => void) => {
+export const fileUpload = (event: React.ChangeEvent<HTMLInputElement>, userEmail: string, parentFolderId: string, setProgress: (x: number) => void) => {
     if (event?.target?.files){
         const file = event.target.files[0]
 
@@ -28,9 +28,9 @@ export const fileUpload = (event: React.ChangeEvent<HTMLInputElement>, userEmail
                                 name: file.name,
                                 isFolder: false,
                                 isImage:  fileIsImage(file.name),
-                                imageLink: downloadURL,
+                                fileLink: downloadURL,
                                 ownerEmail: userEmail,
-                                parentFolderId: "REPLACE ME",
+                                parentFolderId,
                                 fileList: [],
                             })
                         })

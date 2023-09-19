@@ -1,3 +1,12 @@
+export interface HeaderProps {
+    parentFolderId: string;
+}
+
+export interface ViewFilesProps {
+    parentFolderId: string;
+    ownerEmail: string;
+}
+
 export interface Button {
     btnClass: string;
     title: string;
@@ -18,7 +27,7 @@ export interface File {
     name: string;
     isFolder: boolean;
     isImage: boolean;
-    imageLink: string;
+    fileLink: string;
     ownerEmail: string;
     parentFolderId: string;
     fileList: string[];

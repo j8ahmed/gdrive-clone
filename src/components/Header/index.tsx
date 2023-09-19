@@ -2,11 +2,12 @@ import { useState } from "react"
 import { useSession, signIn, signOut } from "next-auth/react"
 import { fileUpload } from "~/api/firestore/fileUpload"
 import { addFolder } from "~/api/firestore/firestore"
+import { HeaderProps } from "@/Interface/"
 import Button from "@/components/Button";
 import ProgressBar from "@/components/ProgressBar";
 import styles from "./style.module.scss";
 
-export default function Header() {
+export default function Header({parentFolderId = ""}: HeaderProps) {
     const { data: session } = useSession();
     const [showUploadFileInput, setShowUploadFileInput] = useState(false)
     const [showUploadFolderInput, setShowUploadFolderInput] = useState(false)
@@ -24,7 +25,7 @@ export default function Header() {
                             <input 
                                 type="file" 
                                 className="file-input file-input-bordered w-full max-w-xs" 
-                                onChange={(event) => fileUpload(event, session.user.email ?? "", setProgress)} 
+                                onChange={(event) => fileUpload(event, session.user.email ?? "", parentFolderId, setProgress)} 
                             /> : null
                         }
 
@@ -42,15 +43,18 @@ export default function Header() {
                                 <Button 
                                     btnClass="btn-outline mr-2 btn-accent" 
                                     title="Add New Folder" 
-                                    onClick={() => addFolder({
-                                        name: folderName,
-                                        isFolder: true,
-                                        isImage: false,
-                                        imageLink: "",
-                                        ownerEmail: session.user.email ?? "",
-                                        parentFolderId: "REPLACE ME",
-                                        fileList: []
-                                    })}
+                                    onClick={() => {
+                                        setShowUploadFolderInput(false)
+                                        addFolder({
+                                            name: folderName,
+                                            isFolder: true,
+                                            isImage: false,
+                                            fileLink: "",
+                                            ownerEmail: session.user.email ?? "",
+                                            parentFolderId,
+                                            fileList: []
+                                        })
+                                    }}
                                 />
                             </> : null
                         }
