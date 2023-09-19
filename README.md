@@ -1,5 +1,14 @@
 # Google Drive Clone
 
+Built based on this [tutorial - Full Stack Next.js, Typescript, Firebase Tutorial – Google Drive Clone](https://youtu.be/gwOVynGnDZA?feature=shared)
+
+Changed quite a few things since the tutorial was honestly pretty hectic and unclear. It did give me some positive exposure with `next-auth` and forced me to read up on the Firebase docs (so that's a positive). There are a lot of features and issues that need to be added for it to offer anywhere near the level of convenience Google Drive offers. For now it was a great practice exercise using:
+
+- Next.js
+- Firebase
+- TypeScript
+- Tailwind CSS
+
 --- 
 
 # Create T3 App
