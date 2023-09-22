@@ -33,14 +33,6 @@ export const updateFileField = (docId: string, field: keyof File, payload: Parti
 }
 
 // Update folder and all of it's files / nested folders
-export const updateFolderField = (docId: string, field: keyof File, payload: Partial<File>) => {
-    //const fileDoc = doc(files, docId)
-    //try{
-    //    updateDoc(fileDoc, {
-    //        field: payload[field]
-    //    })
-    //} catch(err){
-    //    console.log(err)
-    //}
-}
+// export const updateFolderField = (docId: string, field: keyof File, payload: Partial<File>) => {
+// }
 
